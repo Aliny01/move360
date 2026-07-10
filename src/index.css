@@ -32,6 +32,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  /* Evita que qualquer elemento decorativo (glow, marquee) empurre a
+     largura da página e "leve junto" elementos fixed (ex: botão do
+     WhatsApp) pra fora da tela no mobile. */
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   margin: 0;
   background-color: var(--color-paper);

@@ -35,7 +35,7 @@ export default function Header() {
           <img
             src="/logo/logotipo-completo-preto.png"
             alt="Move Tour 360°"
-            className="h-8 w-auto md:h-9"
+            className="h-9 w-auto md:h-9"
           />
         </a>
 
