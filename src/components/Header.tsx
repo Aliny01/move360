@@ -53,7 +53,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <OutlineButton href="#contato" className="px-5 py-2.5 text-xs">
-            Falar com a gente
+            Falar com um consultor
           </OutlineButton>
           <SolidButton href="#contato" className="px-5 py-2.5 text-xs">
             Solicitar demonstração
@@ -85,7 +85,7 @@ export default function Header() {
             ))}
             <div className="mt-2 flex flex-col gap-3">
               <OutlineButton href="#contato" onClick={() => setOpen(false)}>
-                Falar com a gente
+                Falar com um consultor
               </OutlineButton>
               <SolidButton href="#contato" onClick={() => setOpen(false)}>
                 Solicitar demonstração
