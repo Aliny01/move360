@@ -13,7 +13,6 @@ import ServicesGrid from "./sections/ServicesGrid";
 import HowItWorks from "./sections/HowItWorks";
 import Plans from "./sections/Plans";
 import AudienceMarquee from "./sections/AudienceMarquee";
-import Testimonial from "./sections/Testimonial";
 import Contact from "./sections/Contact";
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
         <HowItWorks />
         <Plans />
         <AudienceMarquee />
-        <Testimonial />
         <Contact />
       </main>
       <Footer />

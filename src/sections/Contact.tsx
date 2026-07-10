@@ -1,16 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { AtSign, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import Container from "../components/Container";
 import Reveal from "../components/Reveal";
 import { SolidSubmitButton } from "../components/Buttons";
-
-const CONTACT_INFO = [
-  { icon: MessageCircle, label: "WhatsApp", value: "Em breve" },
-  { icon: Mail, label: "E-mail", value: "Em breve" },
-  { icon: MapPin, label: "Endereço", value: "Em breve" },
-  { icon: AtSign, label: "Instagram", value: "Em breve" },
-  { icon: Clock, label: "Horário de atendimento", value: "Em breve" },
-];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -38,18 +29,6 @@ export default function Contact() {
               Um espaço, uma vez visto assim, muda a forma como se decide
               sobre ele.
             </p>
-
-            <ul className="mt-10 space-y-4">
-              {CONTACT_INFO.map(({ icon: Icon, label, value }) => (
-                <li key={label} className="flex items-center gap-3 text-sm">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-ink/70">
-                    <Icon className="h-4 w-4" strokeWidth={1.5} />
-                  </span>
-                  <span className="text-ink/45">{label}</span>
-                  <span className="ml-auto font-medium text-ink/70">{value}</span>
-                </li>
-              ))}
-            </ul>
           </Reveal>
 
           <Reveal delay={0.1}>
@@ -59,7 +38,7 @@ export default function Contact() {
                   Recebemos sua solicitação.
                 </p>
                 <p className="mt-2 max-w-xs text-sm text-ink/55">
-                  Nosso time entra em contato em breve para combinar a sua
+                  Nosso time entra em contato para combinar a sua
                   demonstração exclusiva.
                 </p>
               </div>

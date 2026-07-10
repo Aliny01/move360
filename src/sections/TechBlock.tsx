@@ -54,7 +54,7 @@ export default function TechBlock() {
               <div className="text-center">
                 <p className="font-display text-lg font-medium">Virtual Experience</p>
                 <p className="mt-1 text-sm text-paper/50">
-                  Arraste para explorar — embed do tour Matterport em breve
+                  Arraste para explorar o espaço em 360°
                 </p>
               </div>
             </div>
