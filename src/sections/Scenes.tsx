@@ -5,14 +5,14 @@ export default function Scenes() {
   return (
     <>
       <Scene
-        eyebrow="Decisão sem deslocamento"
+        eyebrow="Imóveis"
         title="Decisão sem deslocamento"
         text="Um comprador entra num apartamento que fica a 400km de distância. Caminha até a varanda, olha a vista, sente a proporção da sala — e decide, ali, sem sair de casa. Não é uma planta. É a experiência de estar dentro do imóvel, antes da primeira visita presencial."
         image={images.scene01Comprador}
         imageAlt="Living room amplo com luz natural quente e vista"
       />
       <Scene
-        eyebrow="Antes de ser construído"
+        eyebrow="Arquitetura"
         title="O projeto antes de existir"
         text="Um arquiteto entra no próprio projeto meses antes da primeira fundação ser lançada. Caminha pelos ambientes, percebe a proporção de um corredor, ajusta o que só se percebe estando dentro — não em uma planta, em uma tela."
         image={images.scene02Arquiteto}
@@ -20,7 +20,7 @@ export default function Scenes() {
         reverse
       />
       <Scene
-        eyebrow="Antes da chegada"
+        eyebrow="Hospedagem"
         title="Um espaço, sempre acessível"
         text="Um hóspede em potencial percorre a suíte antes de reservar. Já sabe exatamente onde vai acordar, o que vai ver da janela — a decisão já está tomada antes mesmo do check-in."
         image={images.scene03Hospede}
