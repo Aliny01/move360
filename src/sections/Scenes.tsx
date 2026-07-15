@@ -13,8 +13,8 @@ export default function Scenes() {
       />
       <Scene
         eyebrow="Arquitetura"
-        title="O projeto antes de existir"
-        text="Um arquiteto entra no próprio projeto meses antes da primeira fundação ser lançada. Caminha pelos ambientes, percebe a proporção de um corredor, ajusta o que só se percebe estando dentro — não em uma planta, em uma tela."
+        title="A obra pronta, a qualquer distância"
+        text="Um escritório de arquitetura apresenta um projeto já concluído a um cliente que mora em outro estado. Ele percorre cada ambiente, percebe a proporção de um corredor, repara no acabamento de um detalhe — sem pisar na obra. A mesma precisão de estar lá, guardada para sempre."
         image={images.scene02Arquiteto}
         imageAlt="Arquiteto analisando maquete e modelo de projeto"
         reverse

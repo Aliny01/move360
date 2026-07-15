@@ -1,14 +1,14 @@
 import { useState, type FormEvent } from "react";
+import { Mail, MessageCircle } from "lucide-react";
 import Container from "../components/Container";
 import Reveal from "../components/Reveal";
 import { SolidSubmitButton } from "../components/Buttons";
+import { WHATSAPP_DISPLAY, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from "../data/contact";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
-  // Dados de contato (WhatsApp, e-mail) ainda pendentes do cliente — ver
-  // briefing-consolidado.md, seção 7. Conectar este handler a um serviço
-  // de e-mail/CRM assim que os dados chegarem.
+  // Conectar este handler a um serviço de e-mail/CRM.
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSent(true);
@@ -29,6 +29,25 @@ export default function Contact() {
               Um espaço, uma vez visto assim, muda a forma como se decide
               sobre ele.
             </p>
+
+            <ul className="mt-10 space-y-4">
+              <li className="flex items-center gap-3 text-sm">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-ink/70">
+                  <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+                </span>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="font-medium text-ink/70 hover:text-ink">
+                  {WHATSAPP_DISPLAY}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-ink/70">
+                  <Mail className="h-4 w-4" strokeWidth={1.5} />
+                </span>
+                <a href={EMAIL_LINK} className="font-medium text-ink/70 hover:text-ink">
+                  {EMAIL}
+                </a>
+              </li>
+            </ul>
           </Reveal>
 
           <Reveal delay={0.1}>

@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import Container from "../components/Container";
 import Reveal, { Stagger, StaggerItem } from "../components/Reveal";
 import { SolidButton, OutlineButton } from "../components/Buttons";
+import PlansComparisonTable from "../components/PlansComparisonTable";
 
 const PLANS = [
   {
@@ -88,6 +89,13 @@ export default function Plans() {
             </StaggerItem>
           ))}
         </Stagger>
+
+        <Reveal delay={0.15}>
+          <p className="mt-24 text-center text-xs font-semibold uppercase tracking-[0.2em] text-graphite">
+            Compare os planos
+          </p>
+          <PlansComparisonTable />
+        </Reveal>
       </Container>
     </section>
   );

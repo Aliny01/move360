@@ -1,4 +1,5 @@
 import Container from "./Container";
+import { WHATSAPP_DISPLAY, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from "../data/contact";
 
 const YEAR = new Date().getFullYear();
 
@@ -6,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-ink text-paper/70">
       <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <img
               src="/logo/logotipo-completo-branco.png"
@@ -28,6 +29,24 @@ export default function Footer() {
               <li><a href="#como-funciona" className="hover:text-paper">Como funciona</a></li>
               <li><a href="#planos" className="hover:text-paper">Planos</a></li>
               <li><a href="#contato" className="hover:text-paper">Contato</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-paper/40">
+              Contato
+            </h4>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-paper">
+                  {WHATSAPP_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={EMAIL_LINK} className="hover:text-paper">
+                  {EMAIL}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

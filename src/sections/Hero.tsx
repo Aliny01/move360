@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 font-display text-[2.5rem] font-medium leading-[1.08] tracking-tight text-ink md:col-start-1 md:row-start-2 md:text-[3.4rem]"
           >
-            Existe uma forma de ver um espaço antes mesmo dele existir.
+            Existe uma forma de estar em um espaço sem sair de onde você está.
           </motion.h1>
         </div>
 
@@ -61,9 +61,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative z-10 max-w-lg text-base leading-relaxed text-ink/60 md:col-start-1 md:row-start-3 md:mt-6 md:text-lg"
           >
-            Da planta ao produto pronto, do imóvel ao evento — qualquer
-            espaço, em qualquer momento da sua história, pode ser revivido,
-            apresentado ou decidido com a mesma profundidade de estar lá.
+            Do imóvel ao evento, da loja ao hotel — qualquer espaço já
+            existente pode ser revivido, apresentado ou decidido com a mesma
+            profundidade de estar lá.
           </motion.p>
 
           <motion.div
