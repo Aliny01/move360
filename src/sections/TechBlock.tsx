@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MoveHorizontal } from "lucide-react";
 import Container from "../components/Container";
 import Reveal from "../components/Reveal";
+import TourPreviewVideo from "../components/TourPreviewVideo";
 
 export default function TechBlock() {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,21 +46,19 @@ export default function TechBlock() {
             style={{ y: panelY }}
             className="relative mx-auto aspect-[16/9] w-full max-w-4xl overflow-hidden rounded-[28px] bg-ink"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(80%_100%_at_50%_0%,rgba(255,255,255,0.08),transparent_60%)]" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 text-paper">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-paper/25">
-                <MoveHorizontal className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <div className="text-center">
+            <TourPreviewVideo />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-5 text-paper">
+              <div>
                 <p className="font-display text-lg font-medium">Virtual Experience</p>
-                <p className="mt-1 text-sm text-paper/50">
-                  Arraste para explorar o espaço em 360°
+                <p className="mt-1 text-sm text-paper/60">
+                  Navegação real de um tour Matterport
                 </p>
               </div>
-            </div>
-            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-paper/40">
-              <span className="h-1.5 w-1.5 rounded-full bg-paper/40" />
-              Powered by Matterport
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-paper/50">
+                <span className="h-1.5 w-1.5 rounded-full bg-paper/50" />
+                Powered by Matterport
+              </div>
             </div>
           </motion.div>
         </div>

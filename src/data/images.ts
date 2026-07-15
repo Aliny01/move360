@@ -10,16 +10,18 @@ const pexels = (id: string, w = 2400) =>
 
 export const images = {
   // Hero agora usa vídeo de fundo (ver src/components/HeroVideo.tsx) em vez de foto.
-  // Sala de estar aconchegante, sofá bege, luz de luminária quente, plantas —
-  // critério pedido para a Cena 1 (comprador). Fonte: Pexels, foto 7851906.
-  scene01Comprador: pexels("7851906"),
+  // Foto real: sala de estar, Residência Condomínio Jardim Versailles —
+  // Alameda Boulevard Croisette (projeto real do cliente).
+  scene01Comprador: "/photos/jardim-versailles-sala.jpg",
   scene02Arquiteto: pexels("6285152"),
   scene03Hospede: unsplash("1764694875730-69b2cbf434b5"),
   services: [
     unsplash("1759782526827-5fecfb5f2d9c"),
     unsplash("1774249415644-276c3ac1bfaa"),
-    unsplash("1755556090828-bdd1070bea0a"),
-    unsplash("1481114536533-b80e3d4eb1d4"),
+    // Screenshot real do Dollhouse View — mesmo projeto (Jardim Versailles).
+    "/photos/dollhouse-jardim-versailles.jpg",
+    // Foto real da cozinha — mesmo projeto (Jardim Versailles).
+    "/photos/jardim-versailles-cozinha.jpg",
     unsplash("1576762846960-c6f1dcffade1"),
     unsplash("1760868718218-ff73db4518fd"),
   ],
