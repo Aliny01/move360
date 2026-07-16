@@ -5,13 +5,35 @@ import Reveal from "../components/Reveal";
 import { SolidSubmitButton } from "../components/Buttons";
 import { WHATSAPP_DISPLAY, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from "../data/contact";
 
-export default function Contact() {
-  const [sent, setSent] = useState(false);
+// Endpoint AJAX do FormSubmit — responde em JSON (sem redirecionar a
+// página), o que permite manter a tela de confirmação própria do site.
+// No primeiro envio, o FormSubmit manda um e-mail de confirmação para
+// o endereço abaixo — é preciso clicar no link desse e-mail uma única
+// vez para ativar o recebimento dos formulários seguintes.
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
-  // Conectar este handler a um serviço de e-mail/CRM.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+type Status = "idle" | "sending" | "sent" | "error";
+
+export default function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.currentTarget),
+      });
+      const data = await res.json();
+      // FormSubmit responde 200 mesmo quando o formulário ainda não foi
+      // ativado (primeiro envio) — só "success: true" é entrega real.
+      if (!res.ok || data.success !== "true") throw new Error("Falha no envio");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -51,7 +73,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            {sent ? (
+            {status === "sent" ? (
               <div className="flex h-full min-h-[360px] flex-col items-center justify-center rounded-[24px] bg-mist/60 px-8 text-center">
                 <p className="font-display text-lg font-medium text-ink">
                   Recebemos sua solicitação.
@@ -63,6 +85,10 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 rounded-[24px] bg-mist/60 p-8">
+                <input type="hidden" name="_subject" value="Novo contato — Move Tour 360°" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+
                 <div>
                   <label htmlFor="nome" className="text-xs font-medium text-ink/60">
                     Nome
@@ -113,8 +139,16 @@ export default function Contact() {
                     placeholder="Tipo de espaço, localização, prazo..."
                   />
                 </div>
-                <SolidSubmitButton type="submit" className="w-full">
-                  Solicitar demonstração
+
+                {status === "error" && (
+                  <p className="rounded-xl border border-ink/15 bg-paper px-4 py-3 text-xs text-ink/70">
+                    Não foi possível enviar agora. Tente novamente em instantes
+                    ou fale direto pelo WhatsApp acima.
+                  </p>
+                )}
+
+                <SolidSubmitButton type="submit" disabled={status === "sending"} className="w-full disabled:opacity-60">
+                  {status === "sending" ? "Enviando..." : "Solicitar demonstração"}
                 </SolidSubmitButton>
               </form>
             )}
