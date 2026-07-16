@@ -1,5 +1,12 @@
 import Container from "./Container";
-import { WHATSAPP_DISPLAY, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from "../data/contact";
+import {
+  WHATSAPP_DISPLAY,
+  WHATSAPP_LINK,
+  EMAIL,
+  EMAIL_LINK,
+  INSTAGRAM_DISPLAY,
+  INSTAGRAM_LINK,
+} from "../data/contact";
 
 const YEAR = new Date().getFullYear();
 
@@ -45,6 +52,11 @@ export default function Footer() {
               <li>
                 <a href={EMAIL_LINK} className="hover:text-paper">
                   {EMAIL}
+                </a>
+              </li>
+              <li>
+                <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-paper">
+                  {INSTAGRAM_DISPLAY}
                 </a>
               </li>
             </ul>

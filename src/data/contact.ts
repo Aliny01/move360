@@ -6,3 +6,6 @@ export const WHATSAPP_LINK = `https://wa.me/5534997362455?text=${encodeURICompon
 
 export const EMAIL = "comercial@movetour360.com.br";
 export const EMAIL_LINK = `mailto:${EMAIL}`;
+
+export const INSTAGRAM_DISPLAY = "@movetour360";
+export const INSTAGRAM_LINK = "https://www.instagram.com/movetour360/";

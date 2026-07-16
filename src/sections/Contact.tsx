@@ -1,9 +1,16 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MessageCircle } from "lucide-react";
+import { AtSign, Mail, MessageCircle } from "lucide-react";
 import Container from "../components/Container";
 import Reveal from "../components/Reveal";
 import { SolidSubmitButton } from "../components/Buttons";
-import { WHATSAPP_DISPLAY, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from "../data/contact";
+import {
+  WHATSAPP_DISPLAY,
+  WHATSAPP_LINK,
+  EMAIL,
+  EMAIL_LINK,
+  INSTAGRAM_DISPLAY,
+  INSTAGRAM_LINK,
+} from "../data/contact";
 
 // Endpoint AJAX do FormSubmit — responde em JSON (sem redirecionar a
 // página), o que permite manter a tela de confirmação própria do site.
@@ -67,6 +74,14 @@ export default function Contact() {
                 </span>
                 <a href={EMAIL_LINK} className="font-medium text-ink/70 hover:text-ink">
                   {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-ink/70">
+                  <AtSign className="h-4 w-4" strokeWidth={1.5} />
+                </span>
+                <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="font-medium text-ink/70 hover:text-ink">
+                  {INSTAGRAM_DISPLAY}
                 </a>
               </li>
             </ul>
