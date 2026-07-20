@@ -20,17 +20,24 @@ export const images = {
   // desse segmento ainda).
   scene03Hospede: "/photos/lideranca-projetos-lounge.jpg",
   services: [
-    // Tour Virtual Imersivo — mantida (já representa bem "imersão").
-    unsplash("1759782526827-5fecfb5f2d9c"),
-    // Defurnish — ambiente vazio, sugere "espaço sem mobília".
+    // Tour Virtual Imersivo — foto real do próprio tour (Florindo's Bar).
+    "/photos/tour-virtual-imersivo.jpg",
+    // Defurnish — não usada: o card renderiza defurnishBeforeAfter (slider)
+    // no lugar dessa imagem. Mantida só pra não deslocar os índices abaixo.
     unsplash("1646592474103-cfd22d1d9e34"),
     // Screenshot real do Dollhouse View — mesmo projeto (Jardim Versailles).
     "/photos/dollhouse-jardim-versailles.jpg",
     // Foto real da cozinha — mesmo projeto (Jardim Versailles).
     "/photos/jardim-versailles-cozinha.jpg",
-    // Tags — estante estilizada com múltiplos objetos/pontos de interesse.
-    unsplash("1765371512974-6fa510537d21"),
+    // Tags — screenshot real de uma Tag ativa (Jardim Versailles).
+    "/photos/jardim-versailles-tag.jpg",
     // Google Street View — fachada real, identificável, de rua.
     pexels("7587880"),
   ],
+  // Antes/depois reais do Defurnish — mesmo ambiente (Jardim Versailles),
+  // recortadas no mesmo enquadramento pra alinhar certinho no slider.
+  defurnishBeforeAfter: {
+    before: "/photos/defurnish-antes.jpg",
+    after: "/photos/defurnish-depois.jpg",
+  },
 };

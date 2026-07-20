@@ -1,9 +1,12 @@
 import { Move3d, Wand2, Box, Camera, Tags, MapPin } from "lucide-react";
 import Container from "../components/Container";
 import GradedImage from "../components/GradedImage";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import { Stagger, StaggerItem } from "../components/Reveal";
 import Reveal from "../components/Reveal";
 import { images } from "../data/images";
+
+const DEFURNISH_INDEX = 1;
 
 const SERVICES = [
   {
@@ -55,12 +58,21 @@ export default function ServicesGrid() {
           {SERVICES.map(({ icon: Icon, title, text }, i) => (
             <StaggerItem key={title}>
               <div className="group h-full overflow-hidden rounded-2xl border border-ink/10">
-                <GradedImage
-                  src={images.services[i]}
-                  alt=""
-                  className="aspect-[16/10]"
-                  imgClassName="transition-transform duration-700 group-hover:scale-105"
-                />
+                {i === DEFURNISH_INDEX ? (
+                  <BeforeAfterSlider
+                    before={images.defurnishBeforeAfter.before}
+                    after={images.defurnishBeforeAfter.after}
+                    beforeAlt="Ambiente com móveis, antes da edição por IA"
+                    afterAlt="Mesmo ambiente sem móveis, depois da edição por IA (Defurnish)"
+                  />
+                ) : (
+                  <GradedImage
+                    src={images.services[i]}
+                    alt=""
+                    className="aspect-[16/10]"
+                    imgClassName="transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
                 <div className="p-6">
                   <Icon className="h-5 w-5 text-ink" strokeWidth={1.5} />
                   <h3 className="mt-4 font-display text-base font-medium text-ink">
