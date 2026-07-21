@@ -5,9 +5,6 @@
 const unsplash = (id: string, w = 2400) =>
   `https://images.unsplash.com/photo-${id}?fm=jpg&q=80&w=${w}&auto=format&fit=crop`;
 
-const pexels = (id: string, w = 2400) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
-
 export const images = {
   // Hero agora usa vídeo de fundo (ver src/components/HeroVideo.tsx) em vez de foto.
   // Foto real (sala/TV, ampliada com IA pra caber no formato retrato) —
@@ -31,8 +28,8 @@ export const images = {
     "/photos/jardim-versailles-cozinha.jpg",
     // Tags — screenshot real de uma Tag ativa (Jardim Versailles).
     "/photos/jardim-versailles-tag.jpg",
-    // Google Street View — fachada real, identificável, de rua.
-    pexels("7587880"),
+    // Google Street View — pin de localização em mapa.
+    "/photos/google-maps-pin.jpg",
   ],
   // Antes/depois reais do Defurnish — mesmo ambiente (Jardim Versailles),
   // recortadas no mesmo enquadramento pra alinhar certinho no slider.
