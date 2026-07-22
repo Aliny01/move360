@@ -24,10 +24,11 @@ export const images = {
     unsplash("1646592474103-cfd22d1d9e34"),
     // Screenshot real do Dollhouse View — mesmo projeto (Jardim Versailles).
     "/photos/dollhouse-jardim-versailles.jpg",
-    // Foto real da área kids — tour Florindo's Bar.
-    "/photos/area-kids.jpg",
-    // Tags — screenshot real de uma Tag ativa (Jardim Versailles).
-    "/photos/jardim-versailles-tag.jpg",
+    // Foto real da cozinha — mesmo projeto (Jardim Versailles).
+    "/photos/jardim-versailles-cozinha.jpg",
+    // Tags — foto real da área kids (Florindo's Bar), recorte fechado na
+    // tag pra ficar legível o texto.
+    "/photos/area-kids-tag.jpg",
     // Google Street View — pin de localização em mapa.
     "/photos/google-maps-pin.jpg",
   ],
