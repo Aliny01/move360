@@ -65,16 +65,19 @@ export default function TechBlock() {
               >
                 <TourPreviewVideo />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/10" />
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-paper/95 text-ink shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform group-hover:scale-105">
                     <Play className="ml-0.5 h-6 w-6" strokeWidth={1.75} fill="currentColor" />
                   </span>
+                  <p className="font-display text-base font-medium text-paper md:text-lg">
+                    Clique e viva essa experiência
+                  </p>
                 </div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-5 text-paper">
                   <div>
                     <p className="font-display text-lg font-medium">Virtual Experience</p>
                     <p className="mt-1 text-sm text-paper/60">
-                      Toque para entrar no tour real e navegar
+                      Navegue de verdade pelo espaço, como se estivesse lá
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-paper/50">
