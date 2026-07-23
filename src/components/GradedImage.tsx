@@ -20,6 +20,7 @@ export default function GradedImage({
         src={src}
         alt={alt}
         loading="lazy"
+        draggable={false}
         className={clsx(
           "h-full w-full object-cover [filter:saturate(1.08)_sepia(0.16)_contrast(1.04)_brightness(1.02)]",
           imgClassName

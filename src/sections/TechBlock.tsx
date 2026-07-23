@@ -1,11 +1,15 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Play } from "lucide-react";
 import Container from "../components/Container";
 import Reveal from "../components/Reveal";
 import TourPreviewVideo from "../components/TourPreviewVideo";
+import MatterportEmbed from "../components/MatterportEmbed";
+import { MATTERPORT_TOUR_URL } from "../data/tour";
 
 export default function TechBlock() {
   const ref = useRef<HTMLDivElement>(null);
+  const [activated, setActivated] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -46,20 +50,40 @@ export default function TechBlock() {
             style={{ y: panelY }}
             className="relative mx-auto aspect-[16/9] w-full max-w-4xl overflow-hidden rounded-[28px] bg-ink"
           >
-            <TourPreviewVideo />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/10" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-5 text-paper">
-              <div>
-                <p className="font-display text-lg font-medium">Virtual Experience</p>
-                <p className="mt-1 text-sm text-paper/60">
-                  Navegação real de um tour Matterport
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-paper/50">
-                <span className="h-1.5 w-1.5 rounded-full bg-paper/50" />
-                Powered by Matterport
-              </div>
-            </div>
+            {activated ? (
+              <MatterportEmbed
+                src={MATTERPORT_TOUR_URL}
+                title="Tour virtual Matterport — Jardim Versailles"
+                className="absolute inset-0"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setActivated(true)}
+                aria-label="Ativar o tour virtual real e interativo"
+                className="group absolute inset-0 h-full w-full cursor-pointer text-left"
+              >
+                <TourPreviewVideo />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/10" />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-paper/95 text-ink shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform group-hover:scale-105">
+                    <Play className="ml-0.5 h-6 w-6" strokeWidth={1.75} fill="currentColor" />
+                  </span>
+                </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-5 text-paper">
+                  <div>
+                    <p className="font-display text-lg font-medium">Virtual Experience</p>
+                    <p className="mt-1 text-sm text-paper/60">
+                      Toque para entrar no tour real e navegar
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-paper/50">
+                    <span className="h-1.5 w-1.5 rounded-full bg-paper/50" />
+                    Powered by Matterport
+                  </div>
+                </div>
+              </button>
+            )}
           </motion.div>
         </div>
       </Container>

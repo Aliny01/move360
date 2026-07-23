@@ -4,10 +4,16 @@ import clsx from "clsx";
 import GradedImage from "./GradedImage";
 
 /**
- * Comparador de antes/depois com arraste (mouse e touque, via Pointer
- * Events). "Antes" fica por cima, recortado via clip-path na posição do
- * traço — "depois" fica por baixo, cheio. Nenhuma das duas imagens é
- * redimensionada, só a área visível muda, pra não distorcer nada.
+ * Comparador de antes/depois (mouse e touque, via Pointer Events). "Antes"
+ * fica por cima, recortado via clip-path na posição do traço — "depois"
+ * fica por baixo, cheio. Nenhuma das duas imagens é redimensionada, só a
+ * área visível muda, pra não distorcer nada.
+ *
+ * No mouse, um clique único já "engata" o acompanhamento — não precisa
+ * manter o botão pressionado, só mover o cursor sobre o card. Sair da
+ * área desengata (próxima visita pede um novo clique). No touque, o
+ * comportamento continua sendo arrastar com o dedo pressionado, já que
+ * touch não tem estado de "hover".
  */
 export default function BeforeAfterSlider({
   before,
@@ -24,7 +30,7 @@ export default function BeforeAfterSlider({
 }) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
-  const draggingRef = useRef(false);
+  const engagedRef = useRef(false);
 
   const updateFromClientX = useCallback((clientX: number) => {
     const el = containerRef.current;
@@ -35,17 +41,26 @@ export default function BeforeAfterSlider({
   }, []);
 
   function handlePointerDown(e: PointerEvent<HTMLDivElement>) {
-    draggingRef.current = true;
-    e.currentTarget.setPointerCapture(e.pointerId);
+    engagedRef.current = true;
+    if (e.pointerType !== "mouse") {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    }
     updateFromClientX(e.clientX);
   }
   function handlePointerMove(e: PointerEvent<HTMLDivElement>) {
-    if (!draggingRef.current) return;
+    if (!engagedRef.current) return;
     updateFromClientX(e.clientX);
   }
   function handlePointerUp(e: PointerEvent<HTMLDivElement>) {
-    draggingRef.current = false;
-    e.currentTarget.releasePointerCapture(e.pointerId);
+    if (e.pointerType !== "mouse") {
+      engagedRef.current = false;
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
+  }
+  function handlePointerLeave(e: PointerEvent<HTMLDivElement>) {
+    if (e.pointerType === "mouse") {
+      engagedRef.current = false;
+    }
   }
 
   return (
@@ -54,6 +69,8 @@ export default function BeforeAfterSlider({
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerLeave}
+      onDragStart={(e) => e.preventDefault()}
       className={clsx(
         "relative aspect-[16/10] w-full touch-none select-none overflow-hidden",
         className
